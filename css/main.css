@@ -110,8 +110,8 @@ div.button_row .right {
 	list-style: none;
 }
 #right_tabs {
-	/*position: absolute;
-	white-space: nowrap;
+	position: absolute;
+	/*white-space: nowrap;
 	bottom: 82px;
 	right: 0;*/
 	text-align: center;
