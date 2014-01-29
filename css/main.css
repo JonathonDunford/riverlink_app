@@ -111,8 +111,8 @@ div.button_row .right {
 }
 #right_tabs {
 	position: absolute;
-	/*white-space: nowrap;*/
-	bottom: 82px;
+	white-space: nowrap;
+	/*bottom: 82px;*/
 	right: 0;
 	text-align: center;
 	-webkit-transform-origin: 100% 100%;
