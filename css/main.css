@@ -96,7 +96,8 @@ div.button_row .right {
 	position: absolute;
 	width:40%;
 	margin-top: 5px;
-	height: calc(100% - 67px);
+	/* height: calc(100% - 67px); */
+	height: 100%;
 	right: 0;
 	z-index: 10;
 	display: none;

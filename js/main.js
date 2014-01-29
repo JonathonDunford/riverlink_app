@@ -3,6 +3,10 @@
 //TODO: fix window call for iOS vs Android see: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
 
 jQuery(document).ready(function() {
+
+	var window_height = jQuery(window).height();
+	jQuery('#right_menu_container').css('height', window_height - 67);
+
 	jQuery('#right_tabs').click(function() {
 
 		if (jQuery('#right_menu_content').css('display') === 'none') {
