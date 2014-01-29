@@ -99,7 +99,7 @@ div.button_row .right {
 	height: calc(100% - 67px);
 	right: 0;
 	z-index: 10;
-	display: none;
+	/*display: none;*/
 	color: #FFFFFF;
 }
 #right_tabs, #right_menu_content {
