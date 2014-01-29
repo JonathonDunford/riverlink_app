@@ -1,6 +1,6 @@
 //TODO: trigger loading of places, loading IMG in map section, hide tab button, generate checkboxes
 //TODO: timeout check for new notifications every X seconds, change icon to mail_open and add to notification list
-
+//TODO: fix window call for iOS vs Android see: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
 
 jQuery(document).ready(function() {
 	jQuery('#right_tabs > li').click(function() {

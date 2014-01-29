@@ -113,12 +113,12 @@ div.button_row .right {
 	position: absolute;
 	white-space: nowrap;
 	bottom: 82px;
-	right: 0;
+	right: 100%;
 	text-align: right;
-	/*-webkit-transform-origin: 100% 100%;
+	-webkit-transform-origin: 100% 100%;
 	-webkit-transform: rotate(-90deg);
 	transform-origin: 100% 100%;
-	transform: rotate(-90deg);*/
+	transform: rotate(-90deg);
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
 	-moz-border-radius-topleft: 5px;
