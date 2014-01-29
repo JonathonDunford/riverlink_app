@@ -29,9 +29,9 @@ function open_page(id_prefix) {
 	}
 
 	if (id_prefix === 'map') {
-		jQuery('#right_menu_container').show('slide', { direction: 'right' });
+		jQuery('#right_menu_container').show();
 	} else {
-		jQuery('#right_menu_container').hide('slide', { direction: 'right' });
+		jQuery('#right_menu_container').hide();
 	}
 }
 
