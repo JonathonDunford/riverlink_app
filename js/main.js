@@ -3,7 +3,7 @@
 //TODO: fix window call for iOS vs Android see: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
 
 jQuery(document).ready(function() {
-	jQuery('#right_tabs > li').click(function() {
+	jQuery('#right_tabs').click(function() {
 
 		if (jQuery('#right_menu_content').css('display') === 'none') {
 			jQuery('#right_menu_content').show();
