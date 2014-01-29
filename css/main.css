@@ -22,7 +22,7 @@ a {
 #home_button_container {
 	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: 10%;
 }
 
 #map_page, #notification_page, #report_page {
@@ -59,7 +59,7 @@ a {
 }
 
 div.logo_holder {
-	margin:10% auto;
+	margin:20% auto;
 	height: 99px;
 	width: 98px;
 }
