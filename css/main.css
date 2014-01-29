@@ -113,9 +113,10 @@ div.button_row .right {
 	position: absolute;
 	white-space: nowrap;
 	bottom: 82px;
-	right: 0;
-	text-align: right;
-	-webkit-transform-origin: 100% 100%;
+	/*right: 0;*/
+	right:100px;
+	text-align: center;
+	/*-webkit-transform-origin: 100% 100%;
 	-webkit-transform: rotate(-90deg);
 	transform-origin: 100% 100%;
 	transform: rotate(-90deg);
@@ -124,7 +125,7 @@ div.button_row .right {
 	-moz-border-radius-topleft: 5px;
 	-moz-border-radius-topright: 5px;
 	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-right-radius: 5px;*/
 }
 #right_tabs > li {
 	display: inline-block;
