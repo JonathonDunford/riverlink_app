@@ -135,7 +135,7 @@ div.button_row .right {
 
 #right_menu_content {
 	height:98%;
-	display:none;
+	/*display:none;*/
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-topleft: 5px;
