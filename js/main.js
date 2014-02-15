@@ -81,7 +81,7 @@ function initialize_gmap() {
 	map.setTilt(45);
 
 	grab_layers();
-	jQuery.when(grab_styles()).then(grab_places());
+	load_places();
 
 	//check gps
 	navigator.geolocation.getCurrentPosition(on_gps_success, on_gps_error);
@@ -89,7 +89,7 @@ function initialize_gmap() {
 
 	var map_grab_timeout = setTimeout(function() {
 		grab_layers();
-		jQuery.when(grab_styles()).then(grab_places());
+		load_places();
 	}, 60000 * 60); //60 seconds * 60 = 1 hr
 }
 
@@ -302,7 +302,7 @@ function grab_places() {
 	});
 }
 
-function grab_styles() {
+function load_places() {
 	jQuery.ajax({
 		type: "POST",
 		url: "http://riverlink.org/app/php/grab_styles.php",
@@ -318,6 +318,8 @@ function grab_styles() {
 					'icon_href' : value.icon_href,
 				};
 			});
+
+			grab_places();
 		},
 		error: function() {
 			if (grabbed_styles === false) {
