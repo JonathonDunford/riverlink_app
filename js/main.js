@@ -94,7 +94,8 @@ function initialize_gmap() {
 }
 
 function open_link(link) {
-	navigator.app.loadUrl(link, {openExternal : true});
+	//navigator.app.loadUrl(link, {openExternal : true});
+	window.open(link, '_system');
 }
 
 function submit_report() {
