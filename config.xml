@@ -6,7 +6,7 @@ xmlns:gap = "http://phonegap.com/ns/1.0"
 id        = "com.aeimarketing.riverlink"
 version   = "1.0">
 
-	<name>Riverlink App</name>
+	<name>RiverLink App</name>
 	<description>this is the riverlink app</description>
 
 	<author href="http://aeimarketing.com" email="developers@aeimarketing.com">AEI Marketing</author>
@@ -21,7 +21,7 @@ version   = "1.0">
 	<!-- Customize your app and platform with the preference element. -->
 	<preference name="phonegap-version"           value="3.1.0" />
 	<!-- all: current version of PhoneGap -->
-	<preference name="orientation"                value="default" />
+	<preference name="orientation"                value="portrait" />
 	<!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device"              value="universal" />
 	<!-- all: possible values handset, tablet, or universal -->

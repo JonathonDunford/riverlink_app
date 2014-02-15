@@ -18,8 +18,9 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<!--<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>-->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qr46NogUpSkGpzK9__ezXK_BbYQ9_WY&sensor=true" type="text/javascript"></script>
 		<script src="js/main.js"></script>
-		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
 		<!--<script type="text/javascript" charset="utf-8" src="cordova.js" />-->
 	</head>
 	<body>
@@ -40,7 +41,7 @@
 					</div>
 
 					<div class="right" onclick="open_page('notification');">
-						<img src="img/mail_closed.png" /><br />
+						<img class="notification_img_toggle" src="img/mail_closed.png" /><br />
 						<span class="button_text">Notifications</span>
 					</div>
 
@@ -55,7 +56,8 @@
 						<span class="button_text">Report An Incident</span>
 					</div>
 
-					<div class="right" onclick="window.open('http://riverlink.org', '_system');">
+					<!--<div class="right" onclick="window.open('http://riverlink.org', '_system');">-->
+					<div class="right" onclick="navigator.app.loadUrl('http://riverlink.org', {openExternal : true});">
 						<img src="img/cloud.png" /><br />
 						<span class="button_text">Visit Our<br />Website</span>
 					</div>
@@ -69,15 +71,40 @@
 		</div>
 
 		<div id="map_page">
-			Test Map Page Content
+			<div id="map_container"></div>
+			<div id="map_popup_container">
+				<button style="float:right;margin:5px;" onclick="jQuery('#map_popup_container').hide('slide');">X</button><br />
+				<div id="map_popup_content"></div>
+			</div>
 		</div>
 
 		<div id="notification_page">
-			Test Notification Page Content
+			<ul id="notifications_list">
+
+				<li style="text-align:center;line-height:52px;">No new notifications.</li>
+
+			</ul>
 		</div>
 
 		<div id="report_page">
-			Test Report Page Content
+			<div id="report_div">
+				<form id="report_form">
+					<input type="hidden" name="token" value="KH<R^.3jV>Tj$iFZ8L@t16$(" />
+					Message
+					<textarea id="report_message" name="report_message"></textarea>
+					Picture
+					<input type="file" id="report_image" name="report_image" />
+				</form>
+				<button class="submit_button" id="submit_report" onclick="submit_report();">Submit</button>
+			</div>
+		</div>
+
+		<div id="loading_div">Loading...</div>
+		<div id="loading_bg">&nbsp;</div>
+
+		<div id="page_header_title">
+			<div id="page_header_content" class="title_text">
+			</div>
 		</div>
 
 		<div id="nav_bar">
@@ -91,7 +118,7 @@
 			</div>
 
 			<div class="img_div">
-				<a href="javascript:open_page('notification');"><img src="img/mail_closed.png" /></a>
+				<a href="javascript:open_page('notification');"><img class="notification_img_toggle" src="img/mail_closed.png" /></a>
 			</div>
 
 			<div class="img_div">
@@ -102,12 +129,17 @@
 
 		<div id="right_menu_container">
 			<div id="right_tabs">
-				Layers
+				Options
 			</div>
 			<div id="right_menu_content">
-				Content
+				<div style="margin-left: 5px; margin-top: 5px;">
+					<button id="toggle_on">Select All</button>
+					<button id="toggle_off">Deselect All</button>
+				</div>
+				<ul></ul>
 			</div>
 		</div>
 
 	</body>
 </html>
+\
