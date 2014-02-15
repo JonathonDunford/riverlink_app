@@ -6,8 +6,18 @@ xmlns:gap = "http://phonegap.com/ns/1.0"
 id        = "com.aeimarketing.riverlink"
 version   = "1.0">
 
-	<name>RiverLink App</name>
-	<description>this is the riverlink app</description>
+	<name>The RiverLink App</name>
+	<description>This is the official App of RiverLink. Search and map amenities in the French Broad River area and beyond. For use at home or on the river, this mobile app works in real-time and shows your location in proximity to available amenities. The information is updated daily.
+
+RiverLink App Free Features
+- Search Amenities
+- Map Your Position
+- Receive Important Notifications
+- Report Important Observations and Information
+- Visit our Website Interface
+- Links to Additional Functionalities
+
+The RiverLink App interfaces with live data showing nearby amenities with complete listing information and images. The RiverLink App maps your location and delivers results in your selected criteria on the river and surrounding areas. The RiverLink APP is the perfect real-time French Broad River enjoyment tool.</description>
 
 	<author href="http://aeimarketing.com" email="developers@aeimarketing.com">AEI Marketing</author>
 

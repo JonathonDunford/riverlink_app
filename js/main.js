@@ -95,7 +95,7 @@ function initialize_gmap() {
 
 function open_link(link) {
 	//navigator.app.loadUrl(link, {openExternal : true});
-	window.open(link, '_system');
+	window.open(link, '_blank', 'location=yes');
 }
 
 function submit_report() {
