@@ -93,6 +93,10 @@ function initialize_gmap() {
 	}, 60000 * 60); //60 seconds * 60 = 1 hr
 }
 
+function open_link(link) {
+	navigator.app.loadUrl(link, {openExternal : true});
+}
+
 function submit_report() {
 
 	var i = 1;
