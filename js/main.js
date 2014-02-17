@@ -458,7 +458,7 @@ function update_current_pos(location) {
 		icon: 'https://s3.amazonaws.com/hiltonheadmls/gps_marker.png',
 		map : map,
 		title: 'You are here.',
-		zIndex : 1
+		zIndex: google.maps.Marker.MAX_ZINDEX + 1
 	});
 
 	google.maps.event.addListener(marker, 'click', function() {
