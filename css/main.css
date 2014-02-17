@@ -191,12 +191,13 @@ div.button_row .right {
 	color: #FFFFFF;
 }
 #right_tabs, #right_menu_content {
-	background: #617284;
 	margin: 0px 0px 0px 0px; /* reset */
 	padding: 0px 0px 0px 0px; /* reset */
 	list-style: none;
 }
 #right_tabs {
+	background: #FF6961;
+
 	top: 100px;
 	padding: 5px;
 	position: absolute;
@@ -220,6 +221,8 @@ div.button_row .right {
 }
 
 #right_menu_content {
+	background: #617284;
+
 	height:98%;
 	display:none;
 	-webkit-border-top-left-radius: 5px;
@@ -238,7 +241,7 @@ div.button_row .right {
 	margin: 0;
 	padding: 2%;
 	width: 96%;
-	height: 96%;
+	/*height: 96%;*/
 	overflow: hidden;
 }
 
