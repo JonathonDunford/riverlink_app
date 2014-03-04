@@ -5,8 +5,10 @@
 //DONE: need to handle errors for all AJAX calls, possibly no internet?
 //DONE: timeout check for new notifications every X seconds, change icon to mail_open and add to notification list, recreate notification list each timeout
 //DONE: timeout check for changes in DB, update layers accordingly (async), add date modified to DB, store date in js var, check against that var
-//TODO: for deployment: fix window call for iOS vs Android see: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
+//Done: for deployment: fix window call for iOS vs Android see: http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser
 //DONE: for deployment: lock device orientation to portrait
+
+var base_server_url = 'http://thehiltonheadapp.com/';
 
 var map;
 var grabbed_notifications = false;
@@ -42,7 +44,7 @@ jQuery(document).ready(function() {
 		if (jQuery('#right_menu_content').css('display') === 'none') {
 			jQuery('#right_menu_content').show();
 			jQuery('#right_tabs').css('right', '100%');
-			check_scrolling('#right_menu_content');
+			//check_scrolling('#right_menu_content');
 		} else {
 			jQuery('#right_menu_content').hide();
 			jQuery('#right_tabs').css('right', '0');
@@ -185,7 +187,7 @@ function grab_notifications() {
 
 			var decoded_response = jQuery.parseJSON(response);
 
-			if (typeof decoded_response[0].urgency != "undefined") {
+			if (typeof decoded_response[0] != "undefined") {
 				jQuery('#notifications_list').html(''); //clear it first
 				jQuery('.notification_img_toggle').attr('src', 'img/mail_open.png');//change img to mail open
 
@@ -233,7 +235,7 @@ function open_map_popup(layer, ai_id) {
 	jQuery('#map_popup_content').html(popup_description);
 	jQuery('#map_popup_container').show('slide');
 
-	check_scrolling('#map_popup_content');
+	//check_scrolling('#map_popup_content');
 
 }
 
@@ -269,29 +271,36 @@ function grab_places() {
 					places[value.layer] = {};
 				}
 
-				//add marker
-				places[value.layer][ai] = new google.maps.Marker({
-					position : marker_position,
-					map : map,
-					title : value.title,
-					visible : true,
-					icon : styles[value.layer]['icon_href'],
-				});
+				if (typeof styles[value.style] != 'undefined') {
 
-				places[value.layer][ai].description = '<h3>'+value.title+'</h3>'+value.description;
+					//add marker
+					places[value.layer][ai] = new google.maps.Marker({
+						position : marker_position,
+						map : map,
+						title : value.title,
+						visible : true,
+						icon : styles[value.style]['icon_href'],
+					});
 
-				//scope work around
-				places[value.layer][ai].set('ai', ai);
+					places[value.layer][ai].description = '<h3>'+value.title+'</h3>'+value.description;
 
-				//add event listener
-				google.maps.event.addListener(places[value.layer][ai], 'click', function() {
-					info_window.setContent('<div style="text-align:center;max-width:200px">' +
-											'<h3>'+value.title+'</h3>'+
-											'<button onclick="open_map_popup(\''+value.layer+'\',\''+this.get('ai')+'\')">Details</button>'+
-											'</div>');
-					info_window.open(map, this);
-					map.setCenter(marker_position);
-				});
+					//scope work around
+					places[value.layer][ai].set('ai', ai);
+
+					//add event listener
+					google.maps.event.addListener(places[value.layer][ai], 'click', function() {
+						info_window.setContent('<div style="text-align:center;max-width:200px">' +
+												'<h3>'+value.title+'</h3>'+
+												'<button onclick="open_map_popup(\''+value.layer+'\',\''+this.get('ai')+'\')">Details</button>'+
+												'</div>');
+						info_window.open(map, this);
+						map.setCenter(marker_position);
+					});
+
+				} else {
+					console.log('Error on:');
+					console.log(value);
+				}
 
 				ai++;
 			});
@@ -350,6 +359,7 @@ function grab_layers() {
 			jQuery.each(decoded_response, function(key, value) {
 				layers[value.id] = {
 					'icon_href' : value.icon_href,
+					'display_name' : value.display_name,
 				};
 			});
 
@@ -369,6 +379,8 @@ function grab_layers() {
 
 function inject_layer_toggles() {
 
+	jQuery('#right_menu_content ul').html('');
+
 	//console.log( 'inject: ' + layers );
 
 	jQuery.each(layers, function(key, value) {
@@ -377,11 +389,10 @@ function inject_layer_toggles() {
 		/*var new_layer_title = key.toLowerCase().replace(/\b[a-z]/g, function(letter) {
 			return letter.toUpperCase();
 		});*/
-		var new_layer_title = key.replace('_', ' ');
 
 		var new_layer_li = '<li><img style="float:left;" src="'+ value.icon_href +'" />' +
 								'<input type="checkbox" checked="true" onclick="toggle_layer_visibility(this.checked, \''+key+'\')"/><br />' +
-								'<span class="button_text">'+ new_layer_title +'</span>' +
+								'<span class="button_text">'+ value.display_name +'</span>' +
 							'</li>';
 
 		jQuery('#right_menu_content ul').append(new_layer_li);
@@ -418,7 +429,7 @@ function open_page(page) {
 				jQuery('#page_header_content').html('Notifications');
 				jQuery('#page_header_title').show('slide', { direction: 'up' });
 				jQuery('#nav_bar').show('slide', { direction: 'down' });
-				check_scrolling('#notification_page');
+				//check_scrolling('#notification_page');
 			break;
 
 			case 'report':
