@@ -21,6 +21,7 @@ var styles = {}; // style_id => { 'icon_href' = }
 var layers = {}; // layer_id => { 'icon_href' = }
 var info_window = new google.maps.InfoWindow();
 var bounds = new google.maps.LatLngBounds();
+var current_gps_dot;
 
 google.maps.event.addDomListener(window, 'load', initialize_gmap);
 
@@ -464,7 +465,7 @@ function update_current_pos(location) {
 	$("#lat").text("Latitude : " + location.coords.latitude);
 	$("#lon").text("Longitude : " + location.coords.longitude);*/
 	//show current location on map
-	marker = new google.maps.Marker({
+	current_gps_dot = new google.maps.Marker({
 		position : myLatlng,
 		icon: 'https://s3.amazonaws.com/hiltonheadmls/gps_marker.png',
 		map : map,
@@ -472,13 +473,13 @@ function update_current_pos(location) {
 		zIndex: google.maps.Marker.MAX_ZINDEX + 1
 	});
 
-	google.maps.event.addListener(marker, 'click', function() {
+	google.maps.event.addListener(current_gps_dot, 'click', function() {
 		info_window.setContent('<div style="text-align:center;max-width:200px">' +
-								'<h3>'+marker.title+'</h3>'+
+								'<h3>'+current_gps_dot.title+'</h3>'+
 								'</div>');
 		info_window.open(map, this);
 
-		map.setCenter(marker.position);
+		map.setCenter(current_gps_dot.position);
 	});
 
 
