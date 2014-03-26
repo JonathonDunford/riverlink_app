@@ -56,10 +56,10 @@ The RiverLink App interfaces with live data showing nearby amenities with comple
 	<!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
 	<!-- Plugins -->
-	<!--<plugin name="InAppBrowser" value="CDVInAppBrowser" />
+	<plugin name="InAppBrowser" value="CDVInAppBrowser" />
 	<feature name="InAppBrowser">
 		<param name="ios-package" value="CDVInAppBrowser" />
-	</feature>-->
+	</feature>
 
 	<!-- Core plugins -->
 	<!--<gap:plugin name="org.apache.cordova.battery-status" />
@@ -74,9 +74,9 @@ The RiverLink App interfaces with live data showing nearby amenities with comple
 	<gap:plugin name="org.apache.cordova.file" />
 	<gap:plugin name="org.apache.cordova.file-transfer" />
 	<gap:plugin name="org.apache.cordova.geolocation" />
-	<gap:plugin name="org.apache.cordova.globalization" />-->
+	<gap:plugin name="org.apache.cordova.globalization" />
 	<gap:plugin name="org.apache.cordova.inappbrowser" />
-	<!--<gap:plugin name="org.apache.cordova.media" />
+	<gap:plugin name="org.apache.cordova.media" />
 	<gap:plugin name="org.apache.cordova.network-information" />
 	<gap:plugin name="org.apache.cordova.splashscreen" />
 	<gap:plugin name="org.apache.cordova.vibration" />-->
