@@ -102,7 +102,13 @@ function initialize_gmap() {
 
 function open_link(link) {
 	//navigator.app.loadUrl(link, {openExternal : true});
-	window.open(link, '_system', 'location=yes');
+	//window.open(link, '_system', 'location=yes');
+
+	if( navigator.app ) // Android
+		navigator.app.loadUrl( link, {openExternal:true} )
+	else // iOS and others
+		window.open(link, "_system") // opens in the app, not in safari
+
 }
 
 function submit_report() {
