@@ -54,15 +54,19 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery('#right_menu_content #toggle_on').on('click', function() {
-		if (jQuery('#right_menu_content ul li input:checkbox').prop('checked') == false) {
-			jQuery('#right_menu_content ul li input:checkbox').click();
-		}
+		jQuery('#right_menu_content ul li input:checkbox').each(function() {
+			if (!this.checked) {
+				jQuery(this).click();
+			}
+		});
 	});
 
 	jQuery('#right_menu_content #toggle_off').on('click', function() {
-		if (jQuery('#right_menu_content ul li input:checkbox').prop('checked') == true) {
-			jQuery('#right_menu_content ul li input:checkbox').click();
-		}
+		jQuery('#right_menu_content ul li input:checkbox').each(function() {
+			if (this.checked) {
+				jQuery(this).click();
+			}
+		});
 	});
 
 	grab_notifications();
@@ -98,7 +102,7 @@ function initialize_gmap() {
 
 function open_link(link) {
 	//navigator.app.loadUrl(link, {openExternal : true});
-	window.open(link, '_blank', 'location=yes');
+	window.open(link, '_system', 'location=yes');
 }
 
 function submit_report() {
