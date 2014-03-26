@@ -56,6 +56,9 @@ The RiverLink App interfaces with live data showing nearby amenities with comple
 	<!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
 	<!-- Plugins -->
+	<feature name="InAppBrowser">
+		<param name="ios-package" value="CDVInAppBrowser" />
+	</feature>
 
 	<!-- Core plugins -->
 	<!--<gap:plugin name="org.apache.cordova.battery-status" />
