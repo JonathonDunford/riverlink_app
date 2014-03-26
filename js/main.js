@@ -105,9 +105,9 @@ function open_link(link) {
 	//window.open(link, '_system', 'location=yes');
 
 	if( navigator.app ) // Android
-		navigator.app.loadUrl( link, {openExternal:true} )
+		navigator.app.loadUrl( link, {openExternal:true} );
 	else // iOS and others
-		window.open(link, "_system") // opens in the app, not in safari
+		window.open(link, "_system"); // opens in the app, not in safari
 
 }
 

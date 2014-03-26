@@ -130,7 +130,7 @@ The RiverLink App interfaces with live data showing nearby amenities with comple
 
 	Otherwise, you can specify specific domains:
 	-->
-	<access origin="*"/>
+	<access origin="*" browserOnly="true"/>
 	<!-- allow local pages -->
 	<!--
 	<access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
